@@ -74,11 +74,37 @@ public static class ItemDatabase
             Duration = 2.0f
         },
         
+        // Foods for Tony Tony Chopper
+        new Item { 
+            Name = "Cotton Candy", 
+            Type = ItemType.Food, 
+            CompatibleWith = new List<PetType> { PetType.TonyTonyChopper }, 
+            AffectedStat = PetStat.Hunger, 
+            EffectAmount = 25,
+            Duration = 2.0f
+        },
+        new Item { 
+            Name = "Rumble Ball", 
+            Type = ItemType.Food, 
+            CompatibleWith = new List<PetType> { PetType.TonyTonyChopper }, 
+            AffectedStat = PetStat.Fun, 
+            EffectAmount = 35,
+            Duration = 3.0f
+        },
+        new Item { 
+            Name = "Medical Herbs", 
+            Type = ItemType.Food, 
+            CompatibleWith = new List<PetType> { PetType.TonyTonyChopper }, 
+            AffectedStat = PetStat.Sleep, 
+            EffectAmount = 30,
+            Duration = 2.5f
+        },
+        
         // Universal Foods
         new Item { 
             Name = "Cookies", 
             Type = ItemType.Food, 
-            CompatibleWith = new List<PetType> { PetType.ChizelDoner, PetType.ProgrammerNerdChimpmonk, PetType.NonchalantRacoon }, 
+            CompatibleWith = new List<PetType> { PetType.ChizelDoner, PetType.ProgrammerNerdChimpmonk, PetType.NonchalantRacoon, PetType.TonyTonyChopper }, 
             AffectedStat = PetStat.Hunger, 
             EffectAmount = 10,
             Duration = 1.0f
@@ -109,6 +135,22 @@ public static class ItemDatabase
             EffectAmount = 30,
             Duration = 4.0f
         },
+        new Item { 
+            Name = "Doctor's Kit", 
+            Type = ItemType.Toy, 
+            CompatibleWith = new List<PetType> { PetType.TonyTonyChopper }, 
+            AffectedStat = PetStat.Fun, 
+            EffectAmount = 30,
+            Duration = 3.0f
+        },
+        new Item { 
+            Name = "Straw Hat", 
+            Type = ItemType.Toy, 
+            CompatibleWith = new List<PetType> { PetType.TonyTonyChopper }, 
+            AffectedStat = PetStat.Fun, 
+            EffectAmount = 25,
+            Duration = 2.0f
+        },
         
         // Sleep Items
         new Item { 
@@ -133,6 +175,14 @@ public static class ItemDatabase
             CompatibleWith = new List<PetType> { PetType.ProgrammerNerdChimpmonk }, 
             AffectedStat = PetStat.Sleep, 
             EffectAmount = 20,
+            Duration = 3.0f
+        },
+        new Item { 
+            Name = "Infirmary Bed", 
+            Type = ItemType.Toy, 
+            CompatibleWith = new List<PetType> { PetType.TonyTonyChopper }, 
+            AffectedStat = PetStat.Sleep, 
+            EffectAmount = 35,
             Duration = 3.0f
         }
     };

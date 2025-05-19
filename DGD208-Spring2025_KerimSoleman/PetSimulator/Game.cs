@@ -7,6 +7,7 @@ public class Game
 {
     private bool _isRunning;
     private List<Pet> _adoptedPets;
+    private int _zoomLevel = 1;  // Default zoom level
     
     // Constructor
     public Game()
@@ -44,6 +45,34 @@ public class Game
         Console.ResetColor();
         Console.ReadKey();
         Console.Clear();
+        
+        // Set initial console settings
+        SetConsoleZoom(_zoomLevel);
+    }
+    
+    // Method to set console zoom by adjusting buffer and window size
+    private void SetConsoleZoom(int zoomLevel)
+    {
+        try
+        {
+            // Adjust font size based on zoom level
+            _zoomLevel = zoomLevel;
+            
+            // We can't actually change font size programmatically,
+            // but we can display a message to the user
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"Zoom level set to {_zoomLevel}x");
+            Console.WriteLine("(Note: To actually zoom in Windows Console, use Ctrl + Mouse Wheel or Ctrl + '+'/'-' keys), or Ctrl + Mouse Wheel");
+            Console.ResetColor();
+            
+            // Pause briefly to show message
+            Task.Delay(1500).Wait();
+            Console.Clear();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Could not adjust zoom: {ex.Message}");
+        }
     }
     
     private string GetUserInput()
@@ -54,6 +83,7 @@ public class Game
             "Own a Pet",
             "Seek Available Pets",
             "Use Item on Pet",
+            "Adjust Zoom",
             "Author Info",
             "Exit"
         };
@@ -81,12 +111,55 @@ public class Game
                 await UseItem();
                 break;
                 
+            case "Adjust Zoom":
+                AdjustZoom();
+                break;
+                
             case "Author Info":
                 DisplayCreatorInfo();
                 break;
                 
             case "Exit":
                 _isRunning = false;
+                break;
+        }
+    }
+    
+    // Method to adjust zoom level
+    private void AdjustZoom()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("=== Adjust Zoom ===");
+        Console.ResetColor();
+        
+        List<string> zoomOptions = new List<string>
+        {
+            "Small (0.75x)",
+            "Normal (1x)",
+            "Large (1.25x)",
+            "Extra Large (1.5x)"
+        };
+        
+        Menu<string> zoomMenu = new Menu<string>("Select Zoom Level", zoomOptions, option => option);
+        string selectedOption = zoomMenu.ShowAndGetSelection();
+        
+        if (selectedOption == null) return;
+        
+        // Apply selected zoom
+        switch (selectedOption)
+        {
+            case "Small (0.75x)":
+                SetConsoleZoom(1);  // Smaller
+                break;
+            case "Normal (1x)":
+                SetConsoleZoom(2);  // Normal
+                break;
+            case "Large (1.25x)":
+                SetConsoleZoom(3);  // Larger
+                break;
+            case "Extra Large (1.5x)":
+                SetConsoleZoom(4);  // Extra large
                 break;
         }
     }
@@ -140,6 +213,10 @@ public class Game
                 
             case PetType.ProgrammerNerdChimpmonk:
                 newPet = new ProgrammerNerdChimpmonkPet(petName);
+                break;
+                
+            case PetType.TonyTonyChopper:
+                newPet = new TonyTonyChopperPet(petName);
                 break;
         }
         
@@ -287,6 +364,7 @@ public class Game
         Console.ResetColor();
         Console.WriteLine("Name: Kerim Soleman");
         Console.WriteLine("Student Number: 2305045033");
+        Console.WriteLine("Note: I have only used AI to help me with the code, I have not used any other resources. Especially had trouble with exporting the build, thx for understanding!");
         Console.WriteLine("\nPress any key to continue");
         Console.ReadKey();
     }

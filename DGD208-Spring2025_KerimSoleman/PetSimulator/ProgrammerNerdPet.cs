@@ -5,14 +5,18 @@ using System.Threading.Tasks;
 public class ProgrammerNerdChimpmonkPet : Pet
 {
     private static readonly string _defaultAsciiArt = @"
-       .--.   
-      /  oo\  
-      |  ||_| 
-      \  -/-  
-      /\_/\   
-     / /  \ \ 
-     \ \__/ / 
-      \____/  
+                       .=""=.
+                     _/.-.-.\_     _
+                    ( ( o o ) )    ))
+                     |/  ""  \|    //
+     .-------.        \'---'/    //
+    _|~~ ~~  |_       /`"""`\\  ((
+  =(_|_______|_)=    / /_,_\ \\  \\
+    |:::::::::|      \_\\_'__/ \  ))
+    |:::::::[]|       /`  /`~\  |//
+    |o=======.|      /   /    \  /
+    `"""""""""""`  ,--`,--'\/\    /
+                  '-- ""--'  '--'
     ";
     
     // Array of nerdy facts to randomly spout
@@ -37,7 +41,7 @@ public class ProgrammerNerdChimpmonkPet : Pet
     // Constructor
     public ProgrammerNerdChimpmonkPet(string name) : base(name, PetType.ProgrammerNerdChimpmonk, _defaultAsciiArt)
     {
-        // Start the fact spewing timer (every 2 seconds instead of 4)
+        // Start the fact spewing timer
         _factTimer = new Timer(SpeakNerdyFact, null, 12000, 12000);
     }
     

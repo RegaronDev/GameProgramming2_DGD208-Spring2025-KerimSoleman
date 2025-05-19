@@ -2,5 +2,6 @@ public enum PetType
 {
     ChizelDoner,
     NonchalantRacoon,
-    ProgrammerNerdChimpmonk
+    ProgrammerNerdChimpmonk,
+    TonyTonyChopper
 } 
