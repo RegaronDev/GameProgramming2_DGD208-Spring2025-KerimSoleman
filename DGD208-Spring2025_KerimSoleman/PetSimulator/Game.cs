@@ -46,8 +46,8 @@ public class Game
         Console.ReadKey();
         Console.Clear();
         
-        // Set initial console settings
-        SetConsoleZoom(_zoomLevel);
+        // Set initial console settings to a higher zoom level for better visibility
+        SetConsoleZoom(3);  // Start with Large zoom (1.25x)
     }
     
     // Method to set console zoom by adjusting buffer and window size
@@ -55,14 +55,55 @@ public class Game
     {
         try
         {
-            // Adjust font size based on zoom level
+            // Store the zoom level
             _zoomLevel = zoomLevel;
             
-            // We can't actually change font size programmatically,
-            // but we can display a message to the user
+            // Attempt to adjust console properties for better display
+            try
+            {
+                // Set window size based on zoom level
+                int width = 80;  // Base width
+                int height = 25; // Base height
+                
+                switch (zoomLevel)
+                {
+                    case 1: // Small
+                        width = 100;
+                        height = 30;
+                        break;
+                    case 2: // Normal
+                        width = 90;
+                        height = 28;
+                        break;
+                    case 3: // Large
+                        width = 80;
+                        height = 25;
+                        break;
+                    case 4: // Extra Large
+                        width = 70;
+                        height = 22;
+                        break;
+                }
+                
+                // Adjust console window and buffer size
+                Console.WindowWidth = Math.Min(width, Console.LargestWindowWidth);
+                Console.WindowHeight = Math.Min(height, Console.LargestWindowHeight);
+                Console.BufferWidth = Console.WindowWidth;
+                Console.BufferHeight = Console.WindowHeight * 2;
+                
+                // Try to center console window
+                Console.SetWindowPosition(0, 0);
+            }
+            catch (Exception)
+            {
+                // Some Windows environments might not support all console operations
+                // Just continue if this fails
+            }
+            
+            // Display zoom feedback
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Zoom level set to {_zoomLevel}x");
-            Console.WriteLine("(Note: To actually zoom in Windows Console, use Ctrl + Mouse Wheel or Ctrl + '+'/'-' keys), or Ctrl + Mouse Wheel");
+            Console.WriteLine($"Zoom level set to {GetZoomLevelName(_zoomLevel)}");
+            Console.WriteLine("Window size adjusted for better visibility");
             Console.ResetColor();
             
             // Pause briefly to show message
@@ -72,6 +113,19 @@ public class Game
         catch (Exception ex)
         {
             Console.WriteLine($"Could not adjust zoom: {ex.Message}");
+        }
+    }
+    
+    // Helper method to get zoom level name
+    private string GetZoomLevelName(int zoomLevel)
+    {
+        switch (zoomLevel)
+        {
+            case 1: return "Small (0.75x)";
+            case 2: return "Normal (1x)";
+            case 3: return "Large (1.25x)";
+            case 4: return "Extra Large (1.5x)";
+            default: return $"Level {zoomLevel}";
         }
     }
     

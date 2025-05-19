@@ -5,21 +5,15 @@ using System.Threading.Tasks;
 public class ProgrammerNerdChimpmonkPet : Pet
 {
     private static readonly string _defaultAsciiArt = @"
-                       .=""=.
-                     _/.-.-.\_     _
-                    ( ( o o ) )    ))
-                     |/  ""  \|    //
-     .-------.        \'---'/    //
-    _|~~ ~~  |_       /`"""`\\  ((
-  =(_|_______|_)=    / /_,_\ \\  \\
-    |:::::::::|      \_\\_'__/ \  ))
-    |:::::::[]|       /`  /`~\  |//
-    |o=======.|      /   /    \  /
-    `"""""""""""`  ,--`,--'\/\    /
-                  '-- ""--'  '--'
+    .----.              .---.
+    |C>_ |            _/_-.-_\_
+  __|____|__         /| o   o |\
+ |  ______--|       | //  -  \\ |
+ `-/.::::.\-'       / / '---' \ \
+  `--------'        \ \_/---\_/ /
+                     \         /
     ";
     
-    // Array of nerdy facts to randomly spout
     private static readonly string[] _nerdyFacts = new string[]
     {
         "Um well first of all~ The first computer bug was an actual bug, a moth found in 1947.",
@@ -35,7 +29,6 @@ public class ProgrammerNerdChimpmonkPet : Pet
         "I Just did a fartie HAHHAHAHA xD"
     };
     
-    // Timer for spewing facts
     private Timer _factTimer;
     
     // Constructor

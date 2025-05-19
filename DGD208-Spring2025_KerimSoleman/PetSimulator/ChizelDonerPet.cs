@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 public class ChizelDonerPet : Pet
 {
     private static readonly string _defaultAsciiArt = @"
-``` /\     /\
+ /\     /\
 {  `---'  }
 {  O   O  }
 ~~>  V  <~~
@@ -105,7 +105,7 @@ public class ChizelDonerPet : Pet
             // 50% bonus for food
             amount = (int)(amount * 1.5);
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Damn, {Name} is super happy with the traditional food! (+{amount})");
+            Console.WriteLine($"{Name} is super happy with the food! (+{amount})");
             Console.ResetColor();
         }
         

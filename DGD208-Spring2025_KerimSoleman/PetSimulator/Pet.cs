@@ -89,7 +89,7 @@ public class Pet
     }
     
     // Display pet's ASCII art
-    public void DisplayPet()
+    public virtual void DisplayPet()
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"=== {Name} ({Type}) ===");

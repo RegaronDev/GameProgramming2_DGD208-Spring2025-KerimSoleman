@@ -5,18 +5,20 @@ using System.Threading.Tasks;
 public class TonyTonyChopperPet : Pet
 {
     private static readonly string _defaultAsciiArt = @"
-⠀⠀⠀⠀⢀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀
-⢀⠌⡇⠉⠁⠀⣀⠀⣀⠈⠁⢲⢰⠆⠀
-⠀⠀⠃⡆⠀⠈⡦⠉⠡⠓⠀⢀⢸⣼⠸
-⠘⢤⠼⠃⠐⠚⠒⠓⠒⠃⠀⠼⡆⡡⠂
-⠀⢐⠊⠡⠒⣮⡏⠉⢹⣾⢫⠒⠠⡅⠀
-⠀⠀⠈⠐⠓⠭⣠⣻⣎⡩⠃⠀⠒⠁⠀
-⠀⠀⠀⢀⠔⠟⠀⠀⠈⢷⠄⠀⠀⠀⠀
-⠀⠀⠀⠈⠊⠆⠀⠀⠀⠜⠶⠃⠀⠀⠀
-⠀⠀⠀⠀⠀⣽⣫⠉⣗⣥⠀⠀⠀⠀⠀
+   ┌───────┐   
+   |       |   
+#  |  \/   |  #
+ ##|  /\   |## 
+┌──┘       └──┐
+───────────────
+  \ @    @  /  
+   |'_+_'  |   
+    ───────    
+     /     \   
+    |       |  
+    |       |  
     ";
     
-    // Array of One Piece quotes Chopper might say
     private static readonly string[] _chopperQuotes = new string[]
     {
         "I'm not happy you called me cute, you jerk!~ tihi",
@@ -31,26 +33,20 @@ public class TonyTonyChopperPet : Pet
         "I'm gonna be the best doctor in the world!"
     };
     
-    // Timer for speaking quotes
     private Timer _quoteTimer;
     
-    // Constructor
     public TonyTonyChopperPet(string name) : base(name, PetType.TonyTonyChopper, _defaultAsciiArt)
     {
-        // Start the quote timer (every 18 seconds)
         _quoteTimer = new Timer(SpeakChopperQuote, null, 8000, 18000);
     }
     
-    // Method to have Chopper speak a quote
     private void SpeakChopperQuote(object state)
     {
         if (!IsAlive) return;
         
-        // Get a random quote
         Random random = new Random();
         int quoteIndex = random.Next(_chopperQuotes.Length);
         
-        // Display the quote with color
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"\n{Name} says: {_chopperQuotes[quoteIndex]}\n");
         Console.ResetColor();
@@ -68,21 +64,72 @@ public class TonyTonyChopperPet : Pet
         {
             string line = lines[i];
             
-            // Color the hat (first few lines) red
-            if (i >= 1 && i <= 4)
+            // Skip empty lines
+            if (string.IsNullOrWhiteSpace(line)) continue;
+            
+            // For line 3 with "\/", print characters individually with specific colors
+            if (i == 3)
+            {
+                for (int j = 0; j < line.Length; j++)
+                {
+                    // Color the # symbols brown (tags)
+                    if (line[j] == '#')
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow; // Brown
+                    }
+                    // Color the \/ symbols white (eyes)
+                    else if (j >= 5 && j <= 10)
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    // Color the rest of the hat red
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.Write(line[j]);
+                }
+                Console.WriteLine();
+            }
+            // For line 4 with "/\", print characters individually with specific colors
+            else if (i == 4)
+            {
+                for (int j = 0; j < line.Length; j++)
+                {
+                    // Color the ## symbols brown (tags)
+                    if (line[j] == '#')
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow; // Brown
+                    }
+                    // Color the /\ symbols white (eyes)
+                    else if (j >= 5 && j <= 10)
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    // Color the rest of the hat red
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.Write(line[j]);
+                }
+                Console.WriteLine();
+            }
+            // Hat part (red)
+            else if (i >= 1 && i <= 5 && i != 3 && i != 4)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(line);
             }
-            // Color the body brown
-            else if (i > 4)
+            // Face and body (brown/dark yellow)
+            else if (i > 5)
             {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.DarkYellow; // Brown
+                Console.WriteLine(line);
             }
-            
-            Console.WriteLine(line);
-            Console.ResetColor();
         }
         
+        Console.ResetColor();
         Console.WriteLine();
     }
     
