@@ -25,7 +25,9 @@ public class ChizelDonerPet : Pet
         {
             // 50% bonus for food
             amount = (int)(amount * 1.5);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{Name} is super happy with the food! (+{amount})");
+            Console.ResetColor();
         }
         
         base.IncreaseStat(stat, amount);

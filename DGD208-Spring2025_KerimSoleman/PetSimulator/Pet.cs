@@ -91,19 +91,65 @@ public class Pet
     // Display pet's ASCII art
     public void DisplayPet()
     {
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"=== {Name} ({Type}) ===");
+        Console.ForegroundColor = GetPetColor();
         Console.WriteLine(AsciiArt);
+        Console.ResetColor();
         Console.WriteLine();
+    }
+    
+    // Get a color based on pet type
+    protected virtual ConsoleColor GetPetColor()
+    {
+        switch (Type)
+        {
+            case PetType.ChizelDoner:
+                return ConsoleColor.DarkRed;
+            case PetType.NonchalantRacoon:
+                return ConsoleColor.Gray;
+            case PetType.ProgrammerNerdChimpmonk:
+                return ConsoleColor.DarkGreen;
+            default:
+                return ConsoleColor.White;
+        }
     }
     
     // Display pet stats
     public void DisplayStats()
     {
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine($"=== {Name}'s Stats ===");
+        Console.ResetColor();
+        
+        // Display hunger with color based on value
+        ConsoleColor hungerColor = GetColorForStatValue(Stats[PetStat.Hunger]);
+        Console.ForegroundColor = hungerColor;
         Console.WriteLine($"Hunger: {Stats[PetStat.Hunger]}");
+        
+        // Display sleep with color based on value
+        ConsoleColor sleepColor = GetColorForStatValue(Stats[PetStat.Sleep]);
+        Console.ForegroundColor = sleepColor;
         Console.WriteLine($"Sleep: {Stats[PetStat.Sleep]}");
+        
+        // Display fun with color based on value
+        ConsoleColor funColor = GetColorForStatValue(Stats[PetStat.Fun]);
+        Console.ForegroundColor = funColor;
         Console.WriteLine($"Fun: {Stats[PetStat.Fun]}");
+        
+        Console.ResetColor();
         Console.WriteLine();
+    }
+    
+    // Get color based on stat value (red if low, yellow if medium, green if high)
+    private ConsoleColor GetColorForStatValue(int value)
+    {
+        if (value < 30)
+            return ConsoleColor.Red;
+        else if (value < 70)
+            return ConsoleColor.Yellow;
+        else
+            return ConsoleColor.Green;
     }
 }
 

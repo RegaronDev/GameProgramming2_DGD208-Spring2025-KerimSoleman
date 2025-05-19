@@ -2,17 +2,17 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-public class ProgrammerNerdPet : Pet
+public class ProgrammerNerdChimpmonkPet : Pet
 {
     private static readonly string _defaultAsciiArt = @"
-       _____
-      /     \
-     | -   - |
-     |   O   |
-     |  \_/  |
-      \_____/
-      /|   |\
-     / |___| \
+       .--.   
+      /  oo\  
+      |  ||_| 
+      \  -/-  
+      /\_/\   
+     / /  \ \ 
+     \ \__/ / 
+      \____/  
     ";
     
     // Array of nerdy facts to randomly spout
@@ -35,10 +35,10 @@ public class ProgrammerNerdPet : Pet
     private Timer _factTimer;
     
     // Constructor
-    public ProgrammerNerdPet(string name) : base(name, PetType.ProgrammerNerd, _defaultAsciiArt)
+    public ProgrammerNerdChimpmonkPet(string name) : base(name, PetType.ProgrammerNerdChimpmonk, _defaultAsciiArt)
     {
-        // Start the fact spewing timer (every 4 seconds)
-        _factTimer = new Timer(SpeakNerdyFact, null, 4000, 4000);
+        // Start the fact spewing timer (every 2 seconds instead of 4)
+        _factTimer = new Timer(SpeakNerdyFact, null, 12000, 12000);
     }
     
     // Method to have the pet speak a nerdy fact
@@ -50,8 +50,10 @@ public class ProgrammerNerdPet : Pet
         Random random = new Random();
         int factIndex = random.Next(_nerdyFacts.Length);
         
-        // Display the fact
+        // Display the fact with color
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\n{Name} says: {_nerdyFacts[factIndex]}\n");
+        Console.ResetColor();
     }
     
     // Override the IncreaseStat method for this pet type
@@ -62,7 +64,9 @@ public class ProgrammerNerdPet : Pet
         {
             // 40% bonus for fun
             amount = (int)(amount * 1.4);
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{Name} is having a blast with intellectual stimulation! (+{amount})");
+            Console.ResetColor();
         }
         
         base.IncreaseStat(stat, amount);

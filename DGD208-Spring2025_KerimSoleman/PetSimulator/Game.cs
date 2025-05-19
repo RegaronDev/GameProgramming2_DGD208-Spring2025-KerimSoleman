@@ -30,13 +30,18 @@ public class Game
             await ProcessUserChoice(userChoice);
         }
         
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Thanks for playing!");
+        Console.ResetColor();
     }
     
     private void Initialize()
     {
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("Welcome to the Animal Thriving Wild life!");
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("Click any key to start..");
+        Console.ResetColor();
         Console.ReadKey();
         Console.Clear();
     }
@@ -90,7 +95,9 @@ public class Game
     private async Task AdoptPet()
     {
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("=== Own a Pet ===");
+        Console.ResetColor();
         
         // List of available pet types
         List<PetType> petTypes = Enum.GetValues(typeof(PetType)).Cast<PetType>().ToList();
@@ -103,13 +110,17 @@ public class Game
         
         // Get pet name
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"You selected: {selectedType}");
+        Console.ResetColor();
         Console.Write("What should you call for the felow?: ");
         string petName = Console.ReadLine();
         
         if (string.IsNullOrWhiteSpace(petName))
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Buddy, name your pet, by typing your keyboard >:L");
+            Console.ResetColor();
             Console.ReadKey();
             await AdoptPet();
             return;
@@ -127,8 +138,8 @@ public class Game
                 newPet = new NonchalantRacoonPet(petName);
                 break;
                 
-            case PetType.ProgrammerNerd:
-                newPet = new ProgrammerNerdPet(petName);
+            case PetType.ProgrammerNerdChimpmonk:
+                newPet = new ProgrammerNerdChimpmonkPet(petName);
                 break;
         }
         
@@ -138,7 +149,9 @@ public class Game
         // Add the pet to the list
         _adoptedPets.Add(newPet);
         
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"Congrats! {petName} the {selectedType}!");
+        Console.ResetColor();
         newPet.DisplayPet();
         
         Console.WriteLine("Press any key to continue");
@@ -151,7 +164,9 @@ public class Game
         if (_adoptedPets.Count == 0)
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("You havent gotten any pets-");
+            Console.ResetColor();
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
             return;
@@ -178,7 +193,9 @@ public class Game
         if (_adoptedPets.Count == 0)
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("You don't have any pets to use items on.");
+            Console.ResetColor();
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             return;
@@ -198,7 +215,9 @@ public class Game
         if (compatibleItems.Count == 0)
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Hmm, no compatible items found for {selectedPet.Name}.");
+            Console.ResetColor();
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
             return;
@@ -213,7 +232,9 @@ public class Game
         
         // Use the item on the pet
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"Using {selectedItem.Name} on {selectedPet.Name}...");
+        Console.ResetColor();
         
         // Wait for the item duration
         int progress = 0;
@@ -225,7 +246,24 @@ public class Game
             progress = (i + 1) * 100 / totalSteps;
             
             Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write($"Progress: [{new string('#', i + 1)}{new string(' ', totalSteps - i - 1)}] {progress}%");
+            
+            // Colorful progress bar
+            Console.Write("Progress: [");
+            for (int j = 0; j < totalSteps; j++)
+            {
+                if (j < i + 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("#");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.Write(" ");
+                }
+            }
+            Console.ResetColor();
+            Console.Write($"] {progress}%");
         }
         
         Console.WriteLine();
@@ -233,7 +271,9 @@ public class Game
         // Apply the effect
         selectedPet.IncreaseStat(selectedItem.AffectedStat, selectedItem.EffectAmount);
         
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\n{selectedPet.Name} liked the {selectedItem.Name}!");
+        Console.ResetColor();
         Console.WriteLine("Press any key to continue");
         Console.ReadKey();
     }
@@ -242,7 +282,9 @@ public class Game
     private void DisplayCreatorInfo()
     {
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("=== Creator Information ===");
+        Console.ResetColor();
         Console.WriteLine("Name: Kerim Soleman");
         Console.WriteLine("Student Number: 2305045033");
         Console.WriteLine("\nPress any key to continue");
@@ -254,8 +296,10 @@ public class Game
     {
         Pet deadPet = e.Pet;
         
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine($"\n---------------------------");
         Console.WriteLine($"AH SHIT! {deadPet.Name} has died!");
         Console.WriteLine($"---------------------------\n");
+        Console.ResetColor();
     }
 } 

@@ -1,0 +1,15 @@
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\bin\Debug\net6.0\PetSimulator.exe
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\bin\Debug\net6.0\PetSimulator.deps.json
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\bin\Debug\net6.0\PetSimulator.runtimeconfig.json
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\bin\Debug\net6.0\PetSimulator.dll
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\bin\Debug\net6.0\PetSimulator.pdb
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.AssemblyInfoInputs.cache
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.AssemblyInfo.cs
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.csproj.CoreCompileInputs.cache
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.sourcelink.json
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.dll
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\refint\PetSimulator.dll
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.pdb
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\PetSimulator.genruntimeconfig.cache
+D:\OneDrive\Documents\GameProgramming2_DGD208-Spring2025-KerimSoleman\DGD208-Spring2025_KerimSoleman\PetSimulator\obj\Debug\net6.0\ref\PetSimulator.dll

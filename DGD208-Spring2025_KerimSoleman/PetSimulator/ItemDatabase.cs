@@ -48,11 +48,11 @@ public static class ItemDatabase
             Duration = 2.5f
         },
         
-        // Foods for Programmer Nerd
+        // Foods for Programmer Nerd Chimpmonk
         new Item { 
             Name = "Energy Drink", 
             Type = ItemType.Food, 
-            CompatibleWith = new List<PetType> { PetType.ProgrammerNerd }, 
+            CompatibleWith = new List<PetType> { PetType.ProgrammerNerdChimpmonk }, 
             AffectedStat = PetStat.Hunger, 
             EffectAmount = 10,
             Duration = 1.0f
@@ -60,7 +60,7 @@ public static class ItemDatabase
         new Item { 
             Name = "Pizza", 
             Type = ItemType.Food, 
-            CompatibleWith = new List<PetType> { PetType.ProgrammerNerd }, 
+            CompatibleWith = new List<PetType> { PetType.ProgrammerNerdChimpmonk }, 
             AffectedStat = PetStat.Hunger, 
             EffectAmount = 30,
             Duration = 3.0f
@@ -68,7 +68,7 @@ public static class ItemDatabase
         new Item { 
             Name = "Instant Noodles", 
             Type = ItemType.Food, 
-            CompatibleWith = new List<PetType> { PetType.ProgrammerNerd }, 
+            CompatibleWith = new List<PetType> { PetType.ProgrammerNerdChimpmonk }, 
             AffectedStat = PetStat.Hunger, 
             EffectAmount = 15,
             Duration = 2.0f
@@ -78,7 +78,7 @@ public static class ItemDatabase
         new Item { 
             Name = "Cookies", 
             Type = ItemType.Food, 
-            CompatibleWith = new List<PetType> { PetType.ChizelDoner, PetType.ProgrammerNerd, PetType.NonchalantRacoon }, 
+            CompatibleWith = new List<PetType> { PetType.ChizelDoner, PetType.ProgrammerNerdChimpmonk, PetType.NonchalantRacoon }, 
             AffectedStat = PetStat.Hunger, 
             EffectAmount = 10,
             Duration = 1.0f
@@ -104,7 +104,7 @@ public static class ItemDatabase
         new Item { 
             Name = "Mechanical Keyboard", 
             Type = ItemType.Toy, 
-            CompatibleWith = new List<PetType> { PetType.ProgrammerNerd }, 
+            CompatibleWith = new List<PetType> { PetType.ProgrammerNerdChimpmonk }, 
             AffectedStat = PetStat.Fun, 
             EffectAmount = 30,
             Duration = 4.0f
@@ -130,7 +130,7 @@ public static class ItemDatabase
         new Item { 
             Name = "Dark Mode IDE", 
             Type = ItemType.Toy, 
-            CompatibleWith = new List<PetType> { PetType.ProgrammerNerd }, 
+            CompatibleWith = new List<PetType> { PetType.ProgrammerNerdChimpmonk }, 
             AffectedStat = PetStat.Sleep, 
             EffectAmount = 20,
             Duration = 3.0f

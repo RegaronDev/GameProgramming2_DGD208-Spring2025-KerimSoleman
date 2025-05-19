@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 public class NonchalantRacoonPet : Pet
 {
     private static readonly string _defaultAsciiArt = @"
-      /\___/\
-     /       \
-    |  -   -  |  
-    >\   v   /<
-      \     /
-       \___/
+     /\___/\
+    /       \
+   |  -   -  |  
+   >\   v   /<
+     \     /
+      \___/
       /   \
     ";
     
@@ -25,7 +25,9 @@ public class NonchalantRacoonPet : Pet
         {
             // 30% bonus for sleep
             amount = (int)(amount * 1.3);
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{Name} is peacefully resting... (+{amount})");
+            Console.ResetColor();
         }
         
         base.IncreaseStat(stat, amount);
